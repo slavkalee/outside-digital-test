@@ -1,12 +1,18 @@
-import { createStore } from 'vuex'
+import { Result } from '@/interfaces';
+import { createStore } from 'vuex';
 
 export default createStore({
   state: {
+    results: [] as Result[],
   },
   mutations: {
+    addResult(state, payload: Result) {
+      state.results.push(payload);
+    },
   },
-  actions: {
+  getters: {
+    getResults(state) {
+      return state.results;
+    },
   },
-  modules: {
-  }
-})
+});
